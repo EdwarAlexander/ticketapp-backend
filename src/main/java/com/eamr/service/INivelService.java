@@ -5,7 +5,7 @@ import org.springframework.data.domain.Pageable;
 
 import com.eamr.model.Nivel;
 
-public interface INivelService extends CRUD<Nivel,Integer>{
+public interface INivelService extends CRUD<Nivel, Integer> {
 
 	Page<Nivel> listaOrdenada(Pageable pageable);
 }

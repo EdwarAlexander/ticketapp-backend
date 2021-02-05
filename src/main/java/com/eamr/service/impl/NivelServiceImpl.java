@@ -13,7 +13,7 @@ import com.eamr.repo.INivelRepo;
 import com.eamr.service.INivelService;
 
 @Service
-public class NivelServiceImpl implements INivelService{
+public class NivelServiceImpl implements INivelService {
 
 	@Autowired
 	private INivelRepo repo;
@@ -30,7 +30,7 @@ public class NivelServiceImpl implements INivelService{
 
 	@Override
 	public Nivel ListarPorId(Integer id) {
-		Optional<Nivel> nivel= repo.findById(id);
+		Optional<Nivel> nivel = repo.findById(id);
 		return nivel.isPresent() ? nivel.get() : new Nivel();
 	}
 

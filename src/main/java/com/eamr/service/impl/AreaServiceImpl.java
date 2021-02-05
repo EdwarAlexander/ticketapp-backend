@@ -13,11 +13,11 @@ import com.eamr.repo.IAreaRepo;
 import com.eamr.service.IAreaService;
 
 @Service
-public class AreaServiceImpl implements IAreaService{
+public class AreaServiceImpl implements IAreaService {
 
 	@Autowired
 	private IAreaRepo repo;
-	
+
 	@Override
 	public Area registrar(Area obj) {
 		// TODO Auto-generated method stub
@@ -39,7 +39,7 @@ public class AreaServiceImpl implements IAreaService{
 	@Override
 	public Area ListarPorId(Integer id) {
 		// TODO Auto-generated method stub
-		Optional<Area> area=repo.findById(id);
+		Optional<Area> area = repo.findById(id);
 		return area.isPresent() ? area.get() : new Area();
 	}
 

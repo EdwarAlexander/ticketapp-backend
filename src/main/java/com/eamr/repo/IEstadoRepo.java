@@ -5,10 +5,10 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-import com.eamr.model.Nivel;
+import com.eamr.model.Estado;
 
-public interface INivelRepo extends JpaRepository<Nivel, Integer> {
+public interface IEstadoRepo extends JpaRepository<Estado,Integer>{
 
-	@Query("from Nivel n order by n.id desc")
-	Page<Nivel> listaOrdena(Pageable pageable);
+	@Query("from Estado e order by e.id desc")
+	Page<Estado> listaOrdenada(Pageable pageable);
 }

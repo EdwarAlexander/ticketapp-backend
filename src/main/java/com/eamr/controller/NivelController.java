@@ -25,29 +25,30 @@ public class NivelController {
 
 	@Autowired
 	private INivelService service;
-	
+
 	@GetMapping
-	public ResponseEntity<Page<Nivel>> listar(Pageable pageable){
+	public ResponseEntity<Page<Nivel>> listar(Pageable pageable) {
 		Page<Nivel> nivel = service.listaOrdenada(pageable);
-		return new ResponseEntity<Page<Nivel>>(nivel,HttpStatus.OK);
+		return new ResponseEntity<Page<Nivel>>(nivel, HttpStatus.OK);
 	}
-	
+
 	@PostMapping
-	public ResponseEntity<Object> registrar(@RequestBody Nivel obj){
+	public ResponseEntity<Object> registrar(@RequestBody Nivel obj) {
 		Nivel nivel = service.registrar(obj);
-		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(nivel.getId()).toUri();
+		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(nivel.getId())
+				.toUri();
 		return ResponseEntity.created(location).build();
 	}
-	
+
 	@PutMapping
-	public ResponseEntity<Object> modificar(@RequestBody Nivel obj){
+	public ResponseEntity<Object> modificar(@RequestBody Nivel obj) {
 		service.modificar(obj);
 		return new ResponseEntity<Object>(HttpStatus.OK);
 	}
-	
+
 	@GetMapping("/buscar/{id}")
-	public ResponseEntity<Nivel> buscar(@PathVariable Integer id){
+	public ResponseEntity<Nivel> buscar(@PathVariable Integer id) {
 		Nivel nivel = service.ListarPorId(id);
-		return new ResponseEntity<Nivel>(nivel,HttpStatus.OK);
+		return new ResponseEntity<Nivel>(nivel, HttpStatus.OK);
 	}
 }
